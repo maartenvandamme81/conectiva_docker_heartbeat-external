@@ -1,0 +1,26 @@
+heartbeat.monitors:
+- type: http
+  schedule: '@every 5s'
+  urls:
+    - https://www.medtronicconnect.com/apps/login/
+  check.response.status: 200
+
+- type: http
+  schedule: '@every 5s'
+  urls:
+    - https://americas.connect.medtronic.com/apps/login/
+  check.response.status: 200
+
+- type: http
+  schedule: '@every 5s'
+  urls:
+    - https://myorders.medtronic.com/view/content/homepage
+  check.response.status: 200
+
+processors:
+- add_cloud_metadata: ~
+
+output.elasticsearch:
+  hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
+  username: '${ELASTICSEARCH_USERNAME:}'
+  password: '${ELASTICSEARCH_PASSWORD:}'
