@@ -12,7 +12,7 @@ heartbeat.monitors:
   check.response.status: 200
 
 - type: http
-  schedule: '@every 5s'
+  schedule: '@every 10s'
   urls:
     - https://myorders.medtronic.com/view/content/homepage
   check.response.status: 200
