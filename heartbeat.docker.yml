@@ -8,6 +8,12 @@ heartbeat.monitors:
 - type: http
   schedule: '@every 30s'
   urls:
+    - https://ihs.medtronicconnect.com/apps/login/
+  check.response.status: 200
+
+- type: http
+  schedule: '@every 30s'
+  urls:
     - https://americas.connect.medtronic.com/apps/login/
   check.response.status: 200
 
